@@ -18,7 +18,7 @@
 - ✅ **实时监控**：自动获取 [NVD](https://nvd.nist.gov/) 最新漏洞情报  
 - ✅ **高危筛选**：仅推送 **CVSS ≥ 7.0** 的高风险漏洞  
 - ✅ **智能翻译**：集成有道翻译 API，支持漏洞描述中文化  
-- ✅ **去重存储**：数据库文件增量更新，避免重复推送  
+- ✅ **去重存储**：使用 Artifact 存储数据库，避免重复推送  
 - ✅ **日志管理**：支持日志文件轮转，方便审计与追溯  
 - ✅ **自动化运行**：支持 GitHub Actions 定时任务，方便省心，0 运维成本
 
@@ -39,7 +39,7 @@
 
 ### 2. 配置 SendKey
 
-本仓库已内置 GitHub Actions 工作流（[AutoCVE.yml](.github/workflows/AutoCVE.yml) ）。
+本仓库已内置 GitHub Actions 工作流（[AutoCVE.yml](./workflows/AutoCVE.yml) ）。
 你只需在仓库 Settings → Secrets 中配置以下变量：
 - SCKEY : 你刚注册的 Server酱3 SendKey（注意！前后不要有空格回车）
 
@@ -49,18 +49,26 @@
 ### 3. GitHub Actions 自动化运行
 
 - 点击 `Actions` 进入运行页面，点击 `I understand my workflow` 按钮。
-- 自动刷新后左侧出现 `lalalala` 流程。
-- 点击 `lalalala` 流程，点击 `Enable Workflow` 按钮。
+- 自动刷新后左侧出现 `Auto CVE Push Service` 流程。
+- 点击 `Auto CVE Push Service` 流程，点击 `Enable Workflow` 按钮。
 - 给自己的项目点击两次 `Star` （Fork后你自己的项目）启动Action。
-- 再点击上面的 `Actions` 选择 `lalalala` 流程 -> build -> Monitor CVE 就能看到每次的运行日志,看看有没有报错。
+- 再点击上面的 `Actions` 选择 `Auto CVE Push Service` 看看有没有报错。
 - 没有报错的话Server酱里应该就会有推送通知了（记得打开Server酱App通知权限）
 - 推推送效果示例：
+
+![5.png](images/5.png)
+![6.jpg](images/6.jpg)
 
 
 ### 注意
 
-- 默认是每天早上**8点**（北京时间）开始自动检测**24小时**内是否有新的高危漏洞曝出，如果你想修改，可以在AutoCVE.yml中修改。
-
+- 默认是每天早上 UTC 0:00 **（北京时间 8:00）**开始自动检测**24小时**内是否有新的高危漏洞曝出，如果您想修改，可以在AutoCVE.yml中修改。实际执行时间：每天上午 ≈8:00~8:30（受GitHub队列影响）
+- 由于本项目中使用 `GitHub Actions` 的 `Artifact` 来存储数据库（vulns.db）。`Artifact`是存储在GitHub仓库的`Actions`页面下的，与代码仓库分离。因此，当你们fork项目时，只能复制代码，但不会复制`Artifact`。这意味着：
+  - 每个fork的项目在首次运行时，由于没有历史数据库，会从头开始创建一个新的`vulns.db`。（APP可能会收到24小时内的多条通知，不要惊慌）
+  - 每个fork的项目在后续运行中，会使用自己工作流生成的`Artifact`（即自己保存的数据库），不会互相影响。
+- 运行方式：
+   - 启动 Action 时自动首次触发，后续工作流会在每日北京时间 8:00 自动运行
+   - 或手动触发测试：Actions → Auto CVE Monitor → Run workflow
 ---
 
 <p align="center">⚡ 如果本项目对你有帮助，请点一个 ⭐ Star 支持作者！</p> 
@@ -72,12 +80,11 @@
 
 > 目前仅为示例，后续持续完善
 
-- 2025-09-01 ......
-- 2025-08-30 🎉 首次发布：支持高危漏洞自动推送，集成 GitHub Actions
+- 2025-08-31 🎉 首次发布：支持高危漏洞自动推送，集成 GitHub Actions
 
 > TODO:
-- 增加漏洞分类标签与统计报表
-- 针对已曝出漏洞实时跟踪全网POC/EXP情况
+- 增加漏洞分类标签
+- 针对已曝出漏洞实时跟踪全网 POC/EXP 情况，自动通知。
 
 ---
 
@@ -86,4 +93,3 @@
 - 感谢 [Server酱3](https://sc3.ft07.com/) 提供稳定的消息推送服务。
 - 感谢 [NVD](https://nvd.nist.gov/) 提供权威的漏洞情报源。
 - 翻译由 **有道开放平台** 提供。
-
