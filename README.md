@@ -30,12 +30,12 @@
 
 - Fork 本项目，Fork 后你的账号下会存在一个同样的项目（接下来的操作将在你自己的项目中进行）
 
-![1-3.png](images/1-3.png)
+![1.png](images/1.png)
 
 - 直接从手机应用商店搜索`Server酱`下载安装，或访问 [Server酱3](https://sc3.ft07.com/) 点击APP下载。
 - 下载app后注册账号，登录官网 [Server酱3](https://sc3.ft07.com/) 微信扫码后即可获取`SendKey`
 
-![1-1.png](images/1-1.png)
+![2.png](images/2.png)
 
 ### 2. 配置 SendKey
 
@@ -43,8 +43,8 @@
 你只需在仓库 Settings → Secrets 中配置以下变量：
 - SCKEY : 你刚注册的 Server酱3 SendKey（注意！前后不要有空格回车）
 
-![1-6.png](images/1-6.png)
-![1-7.png](images/1-7.png)
+![3.png](images/3.png)
+![4.png](images/4.png)
 
 ### 3. GitHub Actions 自动化运行
 
