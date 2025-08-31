@@ -39,7 +39,7 @@
 
 ### 2. 配置 SendKey
 
-本仓库已内置 GitHub Actions 工作流（[AutoCVE.yml](./workflows/AutoCVE.yml) ）。
+本仓库已内置 GitHub Actions 工作流（[AutoCVE.yml](.github/workflows/AutoCVE.yml) ）。
 你只需在仓库 Settings → Secrets 中配置以下变量：
 - SCKEY : 你刚注册的 Server酱3 SendKey（注意！前后不要有空格回车）
 
@@ -86,3 +86,4 @@
 - 感谢 [Server酱3](https://sc3.ft07.com/) 提供稳定的消息推送服务。
 - 感谢 [NVD](https://nvd.nist.gov/) 提供权威的漏洞情报源。
 - 翻译由 **有道开放平台** 提供。
+
