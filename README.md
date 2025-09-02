@@ -27,7 +27,7 @@
 ## 🛠️ 使用方法
 
 ### 1. 准备工作
-
+- Star 本项目 （舍友说每多10个⭐，就请我吃一顿猪脚饭，助梦瘦弱男大吃猪脚饭🙏）
 - Fork 本项目，Fork 后你的账号下会存在一个同样的项目（接下来的操作将在你自己的项目中进行）
 
 ![1.png](images/1.png)
@@ -56,9 +56,13 @@
 - 没有报错的话Server酱里应该就会有推送通知了（记得打开Server酱App通知权限）
 - 推推送效果示例：
 
-![5.png](images/5.png)
-![6.jpg](images/6.jpg)
-
+<p align = "center">
+<img src="https://github.com/hijack1r/CVE_PushService/blob/main/images/5.png" align = “middle”  width="90%" />
+</p>
+<p align = "center"> 
+<img src="https://github.com/hijack1r/CVE_PushService/blob/main/images/6.jpg" align = “middle”  width="46%" />
+<img src="https://github.com/hijack1r/CVE_PushService/blob/main/images/0.jpg" align = “middle”  width="50%" />
+</p>
 
 ### 注意
 
@@ -73,9 +77,7 @@
 
 <p align="center">⚡ 如果本项目对你有帮助，请点一个 ⭐ Star 支持作者！</p> 
 
-![0.jpg](images/0.jpg)
 ---
-
 
 ## 📅 更新日志
 
@@ -95,6 +97,7 @@
 - 感谢 [Server酱3](https://sc3.ft07.com/) 提供稳定的消息推送服务。
 - 感谢 [NVD](https://nvd.nist.gov/) 提供权威的漏洞情报源。
 - 翻译由 **有道开放平台** 提供。
+
 
 
 
